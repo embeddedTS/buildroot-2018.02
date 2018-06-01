@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# Load modules related to TS-4900/TS-7990/TS-7970
+#
+
+umask 077
+
+start() {
+	printf "Loading modules for TS peripherals: "
+	modprobe wlcore
+	modprobe wlcore_sdio
+	modprobe wl12xx
+	echo "OK"
+}
+
+case "$1" in
+  start)
+	start
+	;;
+  stop)
+	;;
+  restart|reload)
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
