@@ -1,8 +1,0 @@
-#!/bin/bash
-
-echo "Creating md5sums.txt md5sums"
-cd $1
-find . -type f \( ! -name md5sums.txt \) -exec md5sum "{}" + > md5sums.txt
-cd -
-
-exit 0
